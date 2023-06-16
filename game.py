@@ -19,3 +19,13 @@ class Game:
        
         choices_text = "\n ".join(f"{entity.value} : {entity.name}" for entity  in self.entities)
         print(f"Select a number[1-2-3-4-5]:\n {choices_text}:", end='\t')    
+
+
+    def get_user_input(self) -> Entity:
+        """Takes user inputs and selects the entities then returns Entity selected by user
+        """
+        available_choices = [entity.value for entity in self.entities]
+
+        self.Display_user_choices()
+                choice = int(input())
+                    
