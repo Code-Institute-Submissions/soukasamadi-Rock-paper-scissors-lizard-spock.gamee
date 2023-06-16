@@ -1,3 +1,4 @@
+import random
 from rules import Rules
 from entity import Entity
 
@@ -37,3 +38,9 @@ class Game:
             except ValueError:
                 print("You typed somthing different than a number.")
             
+
+    def get_computer_input(self) -> Entity:
+        """Choose a random entity for the computer
+        """
+        computer_choice = random.randint(1, len(self.entities))
+        return self.entities(computer_choice)        
