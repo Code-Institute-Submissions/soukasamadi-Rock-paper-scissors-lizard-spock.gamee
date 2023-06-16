@@ -57,3 +57,9 @@ class Game:
 
     def display_tie(self) -> None:
         print(f"Oops! It's a tie..")    
+
+
+    def display_entities_relation(self, message: str) -> None:
+        """Display the relation between the entities 
+        """
+        print(f"   ({message})\n")    
