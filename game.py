@@ -25,11 +25,15 @@ class Game:
         """Takes user inputs and selects the entities then returns Entity selected by user
         """
         available_choices = [entity.value for entity in self.entities]
-
-        self.Display_user_choices()
+        while True:
+            try:
+                self.Display_user_choices()
                 choice = int(input())
                 
                 if choice not in available_choices:
                     print("Please select a valid choice[1-2-3-4-5]!")
                 else:
                     return self.entities(choice)    
+            except ValueError:
+                print("You typed somthing different than a number.")
+            
