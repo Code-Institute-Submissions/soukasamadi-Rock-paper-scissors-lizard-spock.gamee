@@ -28,4 +28,8 @@ class Game:
 
         self.Display_user_choices()
                 choice = int(input())
-                    
+                
+                if choice not in available_choices:
+                    print("Please select a valid choice[1-2-3-4-5]!")
+                else:
+                    return self.entities(choice)    
