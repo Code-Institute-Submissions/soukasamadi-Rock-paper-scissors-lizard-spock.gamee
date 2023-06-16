@@ -1,7 +1,8 @@
 import random
 from rules import Rules
 from entity import Entity
-
+from collections import defaultdict
+from typing import Dict
 
 class Game:
    
@@ -44,3 +45,11 @@ class Game:
         """
         computer_choice = random.randint(1, len(self.entities))
         return self.entities(computer_choice)        
+
+
+    def display_both_entities(self, user_entity: Entity, computer_intity: Entity) -> None:
+        """Displays current user entity VS computer entity
+        """
+        print("------------------------------------")
+        print(f"{self.user} ({user_entity.name}) - VS - {self.computer} ({computer_intity.name})")
+        print("------------------------------------")    
