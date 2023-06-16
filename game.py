@@ -53,3 +53,7 @@ class Game:
         print("------------------------------------")
         print(f"{self.user} ({user_entity.name}) - VS - {self.computer} ({computer_intity.name})")
         print("------------------------------------")    
+
+
+    def display_tie(self) -> None:
+        print(f"Oops! It's a tie..")    
