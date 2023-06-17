@@ -7,7 +7,8 @@ import gspread
 from google.oauth2.service_account import Credentials
 import datetime
 import time
-import simple_colors 
+import colorama
+from colorama import Fore
 
 
 # Import date from datetime
@@ -46,7 +47,7 @@ class Game:
 
     def display_user_choices(self) -> None:
         choices_text = "\n ".join(f"{entity.value} : {entity.name}" for entity  in self.entities)
-        print(f"Select a number[1-2-3-4-5]:\n {choices_text}:\n")    
+        print(Fore.WHITE + f"\nSelect a number[1-2-3-4-5]:\n {choices_text}:\n")    
 
 
     def get_user_input(self) -> Entity:
@@ -59,11 +60,11 @@ class Game:
                 self.display_user_choices()
                 choice = int(input()) 
                 if choice not in available_choices:
-                    print(simple_colors.red('Please select a valid choice[1-2-3-4-5]!'))
+                    print(Fore.RED + '\nPlease select a valid choice[1-2-3-4-5]!\n')
                 else:
                     return self.entities(choice)    
             except ValueError:
-                print(simple_colors.red('You typed somthing different than a number.'))  
+                print(Fore.RED + '\nYou typed somthing different than a number.\n')  
 
 
     def get_computer_input(self) -> Entity:
@@ -76,9 +77,9 @@ class Game:
     def display_both_entities(self, user_entity: Entity, computer_intity: Entity) -> None:
         """Displays current user entity VS computer entity
         """
-        print(simple_colors.green('------------------------------------'))
-        print(f"{self.user} ({user_entity.name})", simple_colors.green('- VS - '),f" {self.computer} ({computer_intity.name})")
-        print(simple_colors.green('------------------------------------'))
+        print(Fore.GREEN + '------------------------------------')
+        print(Fore.GREEN + f"{self.user} ({user_entity.name})  - VS -  {self.computer} ({computer_intity.name})")
+        print(Fore.GREEN + '------------------------------------')
     
 
 
@@ -89,7 +90,7 @@ class Game:
     def display_entities_relation(self, message: str) -> None:
         """Display the relation between the entities 
         """
-        print(f"   ({message})\n")    
+        print(Fore.CYAN + f"      ({message})\n")    
 
 
     def do_round(self) -> None:
@@ -121,11 +122,11 @@ class Game:
 
     def update_worksheet(self):
         #update worksheet
-        print(simple_colors.yellow('Updating Worksheet ...\n'))
+        print(Fore.YELLOW + '\nUpdating Worksheet ...\n')
         access_sheet = SHEET.worksheet("gamesheet") 
         access_sheet.append_row([self.user, today_date,self.scoreboard.points[self.user], self.scoreboard.points[self.computer]])
         time.sleep(3)
-        print(simple_colors.green('Worksheet Update successful.\n'))
+        print(Fore.GREEN + 'Worksheet Update successful.\n')
 
 
     @staticmethod
@@ -139,11 +140,11 @@ class Game:
 
     def display_game_winner(self):
         if self.scoreboard.points[self.user] > self.scoreboard.points[self.computer]:
-            print(simple_colors.green('  congratulation you are the Winner!\n','bold'))
+            print(Fore.GREEN + '  congratulation you are the Winner!\n')
         elif self.scoreboard.points[self.user] < self.scoreboard.points[self.computer]: 
-            print(simple_colors.red('  Oh oooh! Computer wins!','bold'))
+            print(Fore.RED + '  Oh oooh! Computer wins!')
         else:
-            print(simple_colors.yellow('  There is No winner\n','bold'))
+            print(Fore.YELLOW + '  There is No winner\n')
             
             
   
@@ -151,7 +152,7 @@ class Game:
 
     def restart(self):
         while True:
-            replay = input("Do you want to replay: Enter (Yes) OR (No):\n")
+            replay = input(Fore.WHITE + "Do you want to replay: Enter (Yes) OR (No):\n")
             if replay == "Yes":
                 self.scoreboard.points[self.user] = 0
                 self.scoreboard.points[self.computer] = 0
@@ -172,8 +173,7 @@ class Scoreboard:
 
 
     def display_scores(self):
-        print("\n      **Score**")
-        print(simple_colors.blue('****************************'))
+        print(Fore.MAGENTA + '\n\n***********Score*************')
         for user, score in self.points.items():
             print(f"{user} : {score}", end='\t')
-        print(simple_colors.blue('\n*****************************\n'))        
+        print(Fore.MAGENTA + '\n*****************************\n')        
