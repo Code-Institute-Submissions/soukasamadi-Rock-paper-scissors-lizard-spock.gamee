@@ -112,7 +112,19 @@ class Game:
         elif self.scoreboard.points[self.user] < self.scoreboard.points[self.computer]: 
             print("  Oh oooh! Computer wins!")
         else:
-            print("  there is No winner\n")    
+            print("  there is No winner\n")   
+
+
+     def restart(self):
+        while True:
+            replay = input("Do you want to replay: Enter (Yes) OR (No):\n")
+            if replay == "Yes":
+                self.scoreboard.points[self.user] = 0
+                self.scoreboard.points[self.computer] = 0
+                self.play()
+            elif replay == "No":
+                break
+                    
 
 
 class Scoreboard:
