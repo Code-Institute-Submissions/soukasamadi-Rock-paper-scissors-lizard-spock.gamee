@@ -68,6 +68,24 @@ class Game:
         print(f"   ({message})\n")    
 
 
+    def do_turn(self) -> None:
+        """Function to continue the rounds
+        """
+        user_entity = self.get_user_input()
+        computer_intity = self.get_computer_input()
+        
+        self.display_both_entities(user_entity, computer_intity)
+        if computer_intity == user_entity:
+            self.display_tie()
+            return
+
+        winner, message = self.rules.get_winner(user_entity, computer_intity)
+        if winner == user_entity:
+            self.display_entities_relation(message)
+            self.scoreboard.points[self.user] += 1
+        else:
+            self.display_entities_relation(message)
+            self.scoreboard.points[self.computer] += 1
 
 
 
