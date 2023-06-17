@@ -97,6 +97,12 @@ class Game:
 
 
 
+    @staticmethod
+    def get_user_name() -> str:
+        """Get player name
+        """
+        print("Please enter your name:", end='\t')
+        return str(input().strip())
 
 
 class Scoreboard:
