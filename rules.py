@@ -44,7 +44,7 @@ class Rules:
             (Entity.LIZARD, Entity.PAPER): {
                 'winner': Entity.PAPER,
                 'message': 'Lizard eats Paper'
-            },    
+            },        
      }
 
 
@@ -56,4 +56,3 @@ class Rules:
         elif (entity2, entity1) in self.rules:
             return self.rules[(entity2, entity1)]['winner'], self.rules[(entity2, entity1)]['message']
         raise KeyError('Invalid entities')
-    

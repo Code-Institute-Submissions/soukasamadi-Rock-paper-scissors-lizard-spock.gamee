@@ -4,6 +4,9 @@ from entity import Entity
 from collections import defaultdict
 from typing import Dict
 
+    
+
+
 class Game:
     def __init__(self, user: str, max_round: int = 5) -> None: 
         self.scoreboard = Scoreboard()
@@ -19,7 +22,7 @@ class Game:
 
 
     def display_user_choices(self) -> None:
-        choices_text = "\n".join(f"{entity.value} : {entity.name}" for entity in self.entities)
+        choices_text = "\n ".join(f"{entity.value} : {entity.name}" for entity  in self.entities)
         print(f"Select a number[1-2-3-4-5]:\n {choices_text}:" , end = '\t')    
 
 
@@ -31,13 +34,13 @@ class Game:
         while True:
             try:
                 self.display_user_choices()
-                choice = int(input())  
+                choice = int(input()) 
                 if choice not in available_choices:
                     print("Please select a valid choice[1-2-3-4-5]!")
                 else:
                     return self.entities(choice)    
             except ValueError:
-                print("You typed somthing different than a number.")         
+                print("You typed somthing different than a number.")  
 
 
     def get_computer_input(self) -> Entity:
@@ -92,6 +95,7 @@ class Game:
             self.scoreboard.display_scores()        
 
 
+
     @staticmethod
     def get_user_name() -> str:
         """Get player name
@@ -118,20 +122,23 @@ class Game:
                 self.scoreboard.points[self.computer] = 0
                 self.play()
             elif replay == "No":
-                break
-                  
+                break                   
+
+
 class Scoreboard:
     """Show Scores
     """
     def __init__(self) -> None:
         self.points: Dict[str, int] = defaultdict(int)
-    
+
+  
     def register_player(self, user_name:str):
-        self.points[user_name] = 0
-    
+        self.points[user_name] = 0   
+
+
     def display_scores(self):
         print("\n      **Score**")
         print("****************************")
         for user, score in self.points.items():
-            print(f"{user} : {score}", end = '\t')
+            print(f"{user} : {score}", end='\t')
         print("\n*****************************\n")        
