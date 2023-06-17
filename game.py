@@ -21,7 +21,7 @@ class Game:
 
     def display_user_choices(self) -> None:
         choices_text = "\n ".join(f"{entity.value} : {entity.name}" for entity  in self.entities)
-        print(f"Select a number[1-2-3-4-5]:\n {choices_text}:" , end = '\t')    
+        print(f"Select a number[1-2-3-4-5]:\n {choices_text}:\n")    
 
 
     def get_user_input(self) -> Entity:
@@ -93,12 +93,15 @@ class Game:
             self.scoreboard.display_scores()        
 
 
+    def display_user_name(self):
+        return self.user
+
 
     @staticmethod
     def get_user_name() -> str:
         """Get player name
         """
-        print("Please enter your name:", end = '\t')
+        print("Please enter your name:\n")
         return str(input().strip())
 
 
