@@ -15,6 +15,7 @@ from colorama import Fore
 date = datetime.datetime.today()
 today_date = date.strftime("%d/%m/%Y")
 
+
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
