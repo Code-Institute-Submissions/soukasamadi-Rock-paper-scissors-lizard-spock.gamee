@@ -44,9 +44,8 @@ class Rules:
             (Entity.LIZARD, Entity.PAPER): {
                 'winner': Entity.PAPER,
                 'message': 'Lizard eats Paper'
-            },
-            
-        }
+            },    
+     }
 
 
     def get_winner(self, entity1: Entity, entity2: Entity) -> Tuple[Entity, str]:

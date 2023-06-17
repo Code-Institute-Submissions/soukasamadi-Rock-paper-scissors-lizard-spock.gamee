@@ -5,9 +5,7 @@ from collections import defaultdict
 from typing import Dict
 
 class Game:
-   
-    def __init__(self, user: str, max_round: int = 5) -> None:
-         
+    def __init__(self, user: str, max_round: int = 5) -> None: 
         self.scoreboard = Scoreboard()
         self.max_round = max_round
         self.user: str = user
@@ -20,28 +18,27 @@ class Game:
         self.scoreboard.register_player(self.computer)
 
 
-    def Display_user_choices(self) -> None:
-       
-        choices_text = "\n ".join(f"{entity.value} : {entity.name}" for entity  in self.entities)
-        print(f"Select a number[1-2-3-4-5]:\n {choices_text}:", end='\t')    
+    def display_user_choices(self) -> None:
+        choices_text = "\n".join(f"{entity.value} : {entity.name}" for entity in self.entities)
+        print(f"Select a number[1-2-3-4-5]:\n {choices_text}:" , end = '\t')    
 
 
     def get_user_input(self) -> Entity:
-        """Takes user inputs and selects the entities then returns Entity selected by user
+        """Takes user inputs and selects the entities 
+        then returns Entity selected by user
         """
         available_choices = [entity.value for entity in self.entities]
         while True:
             try:
-                self.Display_user_choices()
-                choice = int(input())
-                
+                self.display_user_choices()
+                choice = int(input())  
                 if choice not in available_choices:
                     print("Please select a valid choice[1-2-3-4-5]!")
                 else:
                     return self.entities(choice)    
             except ValueError:
-                print("You typed somthing different than a number.")
-            
+                print("You typed somthing different than a number.")         
+
 
     def get_computer_input(self) -> Entity:
         """Choose a random entity for the computer
@@ -73,7 +70,6 @@ class Game:
         """
         user_entity = self.get_user_input()
         computer_intity = self.get_computer_input()
-        
         self.display_both_entities(user_entity, computer_intity)
         if computer_intity == user_entity:
             self.display_tie()
@@ -96,12 +92,11 @@ class Game:
             self.scoreboard.display_scores()        
 
 
-
     @staticmethod
     def get_user_name() -> str:
         """Get player name
         """
-        print("Please enter your name:", end='\t')
+        print("Please enter your name:", end = '\t')
         return str(input().strip())
 
 
@@ -115,7 +110,7 @@ class Game:
             print("  there is No winner\n")   
 
 
-     def restart(self):
+    def restart(self):
         while True:
             replay = input("Do you want to replay: Enter (Yes) OR (No):\n")
             if replay == "Yes":
@@ -124,9 +119,7 @@ class Game:
                 self.play()
             elif replay == "No":
                 break
-                    
-
-
+                  
 class Scoreboard:
     """Show Scores
     """
@@ -140,5 +133,5 @@ class Scoreboard:
         print("\n      **Score**")
         print("****************************")
         for user, score in self.points.items():
-            print(f"{user} : {score}", end='\t')
+            print(f"{user} : {score}", end = '\t')
         print("\n*****************************\n")        
