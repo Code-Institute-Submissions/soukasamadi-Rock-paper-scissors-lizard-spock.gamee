@@ -68,7 +68,7 @@ class Game:
         print(f"   ({message})\n")    
 
 
-    def do_turn(self) -> None:
+    def do_round(self) -> None:
         """Function to continue the rounds
         """
         user_entity = self.get_user_input()
@@ -86,6 +86,14 @@ class Game:
         else:
             self.display_entities_relation(message)
             self.scoreboard.points[self.computer] += 1
+
+
+    def play(self):
+        """Loop until all rounds are done
+        """
+        for i in range(self.max_round):
+            self.do_round()
+            self.scoreboard.display_scores()        
 
 
 
