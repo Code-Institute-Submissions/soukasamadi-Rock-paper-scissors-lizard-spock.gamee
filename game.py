@@ -116,6 +116,13 @@ class Game:
             self.scoreboard.display_scores()        
 
 
+    def update_worksheet(self):
+        #update worksheet
+        print("Updating Worksheet ...\n")
+        access_sheet = SHEET.worksheet("gamesheet") 
+        access_sheet.append_row([self.user, today_date,self.scoreboard.points[self.user], self.scoreboard.points[self.computer]])
+        time.sleep(3)
+        print("Worksheet Update successful.\n")
 
 
     @staticmethod
