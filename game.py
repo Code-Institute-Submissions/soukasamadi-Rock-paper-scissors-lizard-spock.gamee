@@ -3,7 +3,30 @@ from rules import Rules
 from entity import Entity
 from collections import defaultdict
 from typing import Dict
+import gspread
+from google.oauth2.service_account import Credentials
+import datetime
+import time
 
+# Import date from datetime
+date = datetime.datetime.today()
+today_date = date.strftime("%d/%m/%Y")
+
+SCOPE = [
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive.file",
+    "https://www.googleapis.com/auth/drive"
+]
+
+
+CREDS = Credentials.from_service_account_file('creds.json')    
+SCOPED_CREDS = CREDS.with_scopes(SCOPE)
+GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
+SHEET = GSPREAD_CLIENT.open('rock_paper_game')
+
+gamesheet = SHEET.worksheet('gamesheet')
+
+data = gamesheet.get_all_values() 
 
 class Game:
     def __init__(self, user: str, max_round: int = 5) -> None: 
@@ -120,7 +143,10 @@ class Game:
         elif self.scoreboard.points[self.user] < self.scoreboard.points[self.computer]: 
             print("  Oh oooh! Computer wins!")
         else:
-            print("  there is No winner\n")   
+            print("  there is No winner\n")
+            
+            
+  
 
 
     def restart(self):

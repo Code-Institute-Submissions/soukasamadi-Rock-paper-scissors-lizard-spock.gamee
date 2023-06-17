@@ -1,30 +1,5 @@
-import datetime
-import gspread
-from google.oauth2.service_account import Credentials
-from game import Game
 
-
-# Import date from datetime
-date = datetime.datetime.today()
-today_date = date.strftime("%d/%m/%Y")
-
-
-
-SCOPE = [
-    "https://www.googleapis.com/auth/spreadsheets",
-    "https://www.googleapis.com/auth/drive.file",
-    "https://www.googleapis.com/auth/drive"
-]
-
-
-CREDS = Credentials.from_service_account_file('creds.json')    
-SCOPED_CREDS = CREDS.with_scopes(SCOPE)
-GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-SHEET = GSPREAD_CLIENT.open('rock_paper_game')
-
-gamesheet = SHEET.worksheet('gamesheet')
-
-data = gamesheet.get_all_values()
+from game import *
 
 
 def main() -> None:
@@ -41,6 +16,7 @@ def main() -> None:
     _ = input()
     game.play()
     game.display_game_winner()
+    game.update_worksheet()
     print("+++++++++++++Game Over++++++++++++\n")
     game.restart()
 
