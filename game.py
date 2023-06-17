@@ -7,6 +7,8 @@ import gspread
 from google.oauth2.service_account import Credentials
 import datetime
 import time
+import simple_colors 
+
 
 # Import date from datetime
 date = datetime.datetime.today()
@@ -57,11 +59,11 @@ class Game:
                 self.display_user_choices()
                 choice = int(input()) 
                 if choice not in available_choices:
-                    print("Please select a valid choice[1-2-3-4-5]!")
+                    print(simple_colors.red('Please select a valid choice[1-2-3-4-5]!'))
                 else:
                     return self.entities(choice)    
             except ValueError:
-                print("You typed somthing different than a number.")  
+                print(simple_colors.red('You typed somthing different than a number.'))  
 
 
     def get_computer_input(self) -> Entity:
@@ -74,9 +76,10 @@ class Game:
     def display_both_entities(self, user_entity: Entity, computer_intity: Entity) -> None:
         """Displays current user entity VS computer entity
         """
-        print("------------------------------------")
-        print(f"{self.user} ({user_entity.name}) - VS - {self.computer} ({computer_intity.name})")
-        print("------------------------------------")    
+        print(simple_colors.green('------------------------------------'))
+        print(f"{self.user} ({user_entity.name})", simple_colors.green('- VS - '),f" {self.computer} ({computer_intity.name})")
+        print(simple_colors.green('------------------------------------'))
+    
 
 
     def display_tie(self) -> None:
@@ -118,11 +121,11 @@ class Game:
 
     def update_worksheet(self):
         #update worksheet
-        print("Updating Worksheet ...\n")
+        print(simple_colors.yellow('Updating Worksheet ...\n'))
         access_sheet = SHEET.worksheet("gamesheet") 
         access_sheet.append_row([self.user, today_date,self.scoreboard.points[self.user], self.scoreboard.points[self.computer]])
         time.sleep(3)
-        print("Worksheet Update successful.\n")
+        print(simple_colors.green('Worksheet Update successful.\n'))
 
 
     @staticmethod
@@ -136,11 +139,11 @@ class Game:
 
     def display_game_winner(self):
         if self.scoreboard.points[self.user] > self.scoreboard.points[self.computer]:
-            print("  congratulation you are the Winner!\n")
+            print(simple_colors.green('  congratulation you are the Winner!\n','bold'))
         elif self.scoreboard.points[self.user] < self.scoreboard.points[self.computer]: 
-            print("  Oh oooh! Computer wins!")
+            print(simple_colors.red('  Oh oooh! Computer wins!','bold'))
         else:
-            print("  there is No winner\n")
+            print(simple_colors.yellow('  There is No winner\n','bold'))
             
             
   
@@ -170,7 +173,7 @@ class Scoreboard:
 
     def display_scores(self):
         print("\n      **Score**")
-        print("****************************")
+        print(simple_colors.blue('****************************'))
         for user, score in self.points.items():
             print(f"{user} : {score}", end='\t')
-        print("\n*****************************\n")        
+        print(simple_colors.blue('\n*****************************\n'))        
