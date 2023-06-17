@@ -116,16 +116,6 @@ class Game:
             self.scoreboard.display_scores()        
 
 
-    def display_user_name(self):
-        return self.user
-
-
-    def cpu_fscore(self):
-        return self.scoreboard.points[self.computer]
-
-
-    def user_fscore(self):
-        return self.scoreboard.points[self.user]
 
 
     @staticmethod
