@@ -46,4 +46,15 @@ class Rules:
                 'message': 'Lizard eats Paper'
             },
             
-        }git
+        }
+
+
+    def get_winner(self, entity1: Entity, entity2: Entity) -> Tuple[Entity, str]:
+        """Get the winner between two entities and reason for win
+        """
+        if (entity1, entity2) in self.rules:
+            return self.rules[(entity1, entity2)]['winner'], self.rules[(entity1, entity2)]['message']
+        elif (entity2, entity1) in self.rules:
+            return self.rules[(entity2, entity1)]['winner'], self.rules[(entity2, entity1)]['message']
+        raise KeyError('Invalid entities')
+    
