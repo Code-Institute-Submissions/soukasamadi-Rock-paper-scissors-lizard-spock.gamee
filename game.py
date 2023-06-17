@@ -4,8 +4,6 @@ from entity import Entity
 from collections import defaultdict
 from typing import Dict
 
-    
-
 
 class Game:
     def __init__(self, user: str, max_round: int = 5) -> None: 

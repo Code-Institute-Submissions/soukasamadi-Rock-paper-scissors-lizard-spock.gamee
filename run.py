@@ -9,6 +9,7 @@ date = datetime.datetime.today()
 today_date = date.strftime("%d/%m/%Y")
 
 
+
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
@@ -24,7 +25,7 @@ SHEET = GSPREAD_CLIENT.open('rock_paper_game')
 gamesheet = SHEET.worksheet('gamesheet')
 
 data = gamesheet.get_all_values()
-print(data)
+
 
 def main() -> None:
     """Main function to start the game
