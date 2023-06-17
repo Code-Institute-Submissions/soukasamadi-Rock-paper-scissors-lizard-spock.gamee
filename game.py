@@ -115,7 +115,7 @@ class Game:
             print("  there is No winner\n")   
 
 
-     def restart(self):
+    def restart(self):
         while True:
             replay = input("Do you want to replay: Enter (Yes) OR (No):\n")
             if replay == "Yes":
