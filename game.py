@@ -105,6 +105,16 @@ class Game:
         return str(input().strip())
 
 
+
+    def display_game_winner(self):
+        if self.scoreboard.points[self.user] > self.scoreboard.points[self.computer]:
+            print("  congratulation you are the Winner!\n")
+        elif self.scoreboard.points[self.user] < self.scoreboard.points[self.computer]: 
+            print("  Oh oooh! Computer wins!")
+        else:
+            print("  there is No winner\n")    
+
+
 class Scoreboard:
     """Show Scores
     """
