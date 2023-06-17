@@ -97,6 +97,14 @@ class Game:
         return self.user
 
 
+    def cpu_fscore(self):
+        return self.scoreboard.points[self.computer]
+
+
+    def user_fscore(self):
+        return self.scoreboard.points[self.user]
+
+
     @staticmethod
     def get_user_name() -> str:
         """Get player name
