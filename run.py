@@ -1,4 +1,10 @@
+import datetime
 from game import Game
+
+
+# Import date from datetime
+date = datetime.datetime.today()
+today_date = date.strftime("%d/%m/%Y")
 
 
 
