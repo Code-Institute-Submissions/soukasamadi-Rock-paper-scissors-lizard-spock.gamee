@@ -1,5 +1,4 @@
-import simple_colors  
-from game import *
+ from game import *
 import colorama
 from colorama import Fore
 
