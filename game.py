@@ -15,6 +15,9 @@ class Game:
         self.rules = Rules()
         self.computer: str = "computer"
 
+        # register players names in scoreboard 
+        self.scoreboard.register_player(self.user)
+        self.scoreboard.register_player(self.computer)
 
 
     def Display_user_choices(self) -> None:
