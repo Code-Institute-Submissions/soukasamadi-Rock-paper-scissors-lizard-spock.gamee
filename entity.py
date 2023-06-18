@@ -8,5 +8,6 @@ class Entity(Enum):
     SPOCK = 4
     LIZARD = 5
 
+
     def __str__(self) -> str:
         return self.value
