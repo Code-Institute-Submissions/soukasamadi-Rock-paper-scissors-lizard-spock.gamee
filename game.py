@@ -22,76 +22,77 @@ SCOPE = [
 ]
 
 
-CREDS = Credentials.from_service_account_file('creds.json')    
+CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('rock_paper_game')
 
 gamesheet = SHEET.worksheet('gamesheet')
 
-data = gamesheet.get_all_values() 
+data = gamesheet.get_all_values()
+
 
 class Game:
-    def __init__(self, user: str, max_round: int = 5) -> None: 
+    def __init__(self, user, max_round: int = 5) -> None:
         self.scoreboard = Scoreboard()
         self.max_round = max_round
-        self.user: str = user
+        self.user = user
         self.entities = Entity
         self.rules = Rules()
-        self.computer: str = "computer"
+        self.computer = "computer"
 
-        # register players names in scoreboard 
+        # register players names in scoreboard
         self.scoreboard.register_player(self.user)
         self.scoreboard.register_player(self.computer)
 
-
     def display_user_choices(self) -> None:
-        choices_text = "\n ".join(f"{entity.value} : {entity.name}" for entity  in self.entities)
-        print(Fore.WHITE + f"\nSelect a number[1-2-3-4-5]:\n {choices_text}:\n")    
-
+        print(Fore.WHITE + f"\nSelect a number[1-2-3-4-5]:\n ")
+        print(" 1 : ROCK\n 2 : PAPER\n 3 : SCISSOR\n 4 : SPOCK\n 5 : LIZARD\n")
 
     def get_user_input(self) -> Entity:
-        """Takes user inputs and selects the entities 
+        """Takes user inputs and selects the entities
         then returns Entity selected by user
         """
         available_choices = [entity.value for entity in self.entities]
         while True:
             try:
                 self.display_user_choices()
-                choice = int(input()) 
+                choice = int(input())
                 if choice not in available_choices:
-                    print(Fore.RED + '\nPlease select a valid choice[1-2-3-4-5]!\n')
+                    print(
+                        Fore.RED +
+                        '\nPlease select a valid choice[1-2-3-4-5]!\n')
                 else:
-                    return self.entities(choice)    
+                    return self.entities(choice)
             except ValueError:
-                print(Fore.RED + '\nYou typed somthing different than a number.\n')  
-
+                print(
+                    Fore.RED +
+                    '\nYou typed somthing different than a number.\n')
 
     def get_computer_input(self) -> Entity:
         """Choose a random entity for the computer
         """
         computer_choice = random.randint(1, len(self.entities))
-        return self.entities(computer_choice)        
+        return self.entities(computer_choice)
 
-
-    def display_both_entities(self, user_entity: Entity, computer_intity: Entity) -> None:
+    def display_both_entities(
+            self,
+            user_entity: Entity,
+            computer_intity: Entity) -> None:
         """Displays current user entity VS computer entity
         """
         print(Fore.GREEN + '------------------------------------')
-        print(Fore.GREEN + f"{self.user} ({user_entity.name})  - VS -  {self.computer} ({computer_intity.name})")
+        print(Fore.GREEN + f"{self.user}({user_entity.name})  - VS -", end=" ")
+        print(f" {self.computer}{computer_intity.name})")
         print(Fore.GREEN + '------------------------------------')
-    
-
 
     def display_tie(self) -> None:
-        print(f"Oops! It's a tie..")    
-
+        print(f"Oops! It's a tie..")
 
     def display_entities_relation(self, message: str) -> None:
-        """Display the relation between the entities 
+        """Display the relation between the entities
         """
-        print(Fore.CYAN + f"      ({message})\n")    
-
+        print(Fore.CYAN + f"      ({message})\n")
 
     def do_round(self) -> None:
         """Function to continue the rounds
@@ -111,69 +112,70 @@ class Game:
             self.display_entities_relation(message)
             self.scoreboard.points[self.computer] += 1
 
-
     def play(self):
         """Loop until all rounds are done
         """
         for i in range(self.max_round):
             self.do_round()
-            self.scoreboard.display_scores()        
+            self.scoreboard.display_scores()
 
+        self.display_game_winner()
+        self.update_worksheet()
 
     def update_worksheet(self):
-        #update worksheet
+        # update worksheet
         print(Fore.YELLOW + '\nUpdating Worksheet ...\n')
-        access_sheet = SHEET.worksheet("gamesheet") 
-        access_sheet.append_row([self.user, today_date,self.scoreboard.points[self.user], self.scoreboard.points[self.computer]])
+        access_sheet = SHEET.worksheet("gamesheet")
+        access_sheet.append_row([self.user,
+                                 today_date,
+                                 self.scoreboard.points[self.user],
+                                 self.scoreboard.points[self.computer]])
         time.sleep(3)
         print(Fore.GREEN + 'Worksheet Update successful.\n')
-
 
     @staticmethod
     def get_user_name() -> str:
         """Get player name
         """
-        print("Please enter your name:\n")
+        print(Fore.WHITE + "Please enter your name:\n")
         return str(input().strip())
 
-
-
     def display_game_winner(self):
-        if self.scoreboard.points[self.user] > self.scoreboard.points[self.computer]:
+        user_point = self.scoreboard.points[self.user]
+        computer_point = self.scoreboard.points[self.computer]
+        if user_point > computer_point:
             print(Fore.GREEN + '  congratulation you are the Winner!\n')
-        elif self.scoreboard.points[self.user] < self.scoreboard.points[self.computer]: 
+        elif user_point < computer_point:
             print(Fore.RED + '  Oh oooh! Computer wins!')
-        else:
+        elif user_point == computer_point:
             print(Fore.YELLOW + '  There is No winner\n')
-            
-            
-  
-
 
     def restart(self):
         while True:
-            replay = input(Fore.WHITE + "Do you want to replay: Enter (Yes) OR (No):\n")
+            replay = input(
+                Fore.WHITE +
+                "Do you want to replay: Enter (Yes) OR (No):\n")
             if replay == "Yes":
                 self.scoreboard.points[self.user] = 0
                 self.scoreboard.points[self.computer] = 0
                 self.play()
+
             elif replay == "No":
-                break                   
+                break
 
 
 class Scoreboard:
     """Show Scores
     """
+
     def __init__(self) -> None:
         self.points: Dict[str, int] = defaultdict(int)
 
-  
-    def register_player(self, user_name:str):
-        self.points[user_name] = 0   
-
+    def register_player(self, user_name: str):
+        self.points[user_name] = 0
 
     def display_scores(self):
         print(Fore.MAGENTA + '\n\n***********Score*************')
         for user, score in self.points.items():
             print(f"{user} : {score}", end='\t')
-        print(Fore.MAGENTA + '\n*****************************\n')        
+        print(Fore.MAGENTA + '\n*****************************\n')
