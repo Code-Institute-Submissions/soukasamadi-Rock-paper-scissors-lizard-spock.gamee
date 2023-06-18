@@ -46,10 +46,11 @@ class Rules:
             'winner': Entity.PAPER,
             'message': 'Lizard eats Paper'
         },
-    }
+     }
+
 
     def get_winner(self, entity1: Entity,
-                   entity2: Entity) -> Tuple[Entity, str]:
+                    entity2: Entity) -> Tuple[Entity, str]:
         """Get the winner between two entities and reason for win
         """
         if (entity1, entity2) in self.rules:
