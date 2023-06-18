@@ -117,13 +117,7 @@ class Game:
         """
         for i in range(self.max_round):
             self.do_round()
-<<<<<<< HEAD
             self.scoreboard.display_scores()
-
-=======
-            self.scoreboard.display_scores()        
-        
->>>>>>> cda707484d004eb7395431b61a8820adb810698b
         self.display_game_winner()
         self.update_worksheet()
 
@@ -152,11 +146,7 @@ class Game:
             print(Fore.GREEN + '  congratulation you are the Winner!\n')
         elif user_point < computer_point:
             print(Fore.RED + '  Oh oooh! Computer wins!')
-<<<<<<< HEAD
         elif user_point == computer_point:
-=======
-        elif self.scoreboard.points[self.user] == self.scoreboard.points[self.computer]:
->>>>>>> cda707484d004eb7395431b61a8820adb810698b
             print(Fore.YELLOW + '  There is No winner\n')
 
     def restart(self):
@@ -168,11 +158,6 @@ class Game:
                 self.scoreboard.points[self.user] = 0
                 self.scoreboard.points[self.computer] = 0
                 self.play()
-<<<<<<< HEAD
-
-=======
-                
->>>>>>> cda707484d004eb7395431b61a8820adb810698b
             elif replay == "No":
                 break
 
