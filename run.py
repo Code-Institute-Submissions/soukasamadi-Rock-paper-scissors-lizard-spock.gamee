@@ -50,7 +50,7 @@ def main() -> None:
     print(Fore.YELLOW + ' -Paper disproves Spock.')
     print(Fore.YELLOW + ' -Spock vaporizes rock.')
     print(Fore.YELLOW + ' -Rock crushes scissors.')
-    print(Fore.BLUE + '------You will play 5 Rounds------')
+    print(Fore.BLUE + '------You will play 5 Rounds------\n')
     print(Fore.WHITE + "Press [Enter] to start:")
     _ = input()
     game.play()
