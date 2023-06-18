@@ -35,10 +35,10 @@ class Game:
     def __init__(self, user: str, max_round: int = 5) -> None: 
         self.scoreboard = Scoreboard()
         self.max_round = max_round
-        self.user: str = user
+        self.user = user
         self.entities = Entity
         self.rules = Rules()
-        self.computer: str = "computer"
+        self.computer = "computer"
 
         # register players names in scoreboard 
         self.scoreboard.register_player(self.user)
@@ -118,7 +118,9 @@ class Game:
         for i in range(self.max_round):
             self.do_round()
             self.scoreboard.display_scores()        
-
+        
+        self.display_game_winner()
+        self.update_worksheet()
 
     def update_worksheet(self):
         #update worksheet
@@ -133,7 +135,7 @@ class Game:
     def get_user_name() -> str:
         """Get player name
         """
-        print("Please enter your name:\n")
+        print(Fore.WHITE + "Please enter your name:\n")
         return str(input().strip())
 
 
@@ -143,7 +145,7 @@ class Game:
             print(Fore.GREEN + '  congratulation you are the Winner!\n')
         elif self.scoreboard.points[self.user] < self.scoreboard.points[self.computer]: 
             print(Fore.RED + '  Oh oooh! Computer wins!')
-        else:
+        elif self.scoreboard.points[self.user] == self.scoreboard.points[self.computer]:
             print(Fore.YELLOW + '  There is No winner\n')
             
             
@@ -157,6 +159,7 @@ class Game:
                 self.scoreboard.points[self.user] = 0
                 self.scoreboard.points[self.computer] = 0
                 self.play()
+                
             elif replay == "No":
                 break                   
 
