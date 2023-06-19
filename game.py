@@ -167,7 +167,7 @@ class Scoreboard:
     """
 
     def __init__(self) -> None:
-        self.points: Dict[str, int] = defaultdict(int)
+        self.points = defaultdict(int)
 
     def register_player(self, user_name: str):
         self.points[user_name] = 0
