@@ -31,6 +31,12 @@ In a tie, the process is repeated until a winner is found.<br>
 #### Colours
 * The colours in the game are supplied by the Python Colorama Model.
 
+### Flowcharts 
+![Flowcharts](![Diagramm](https://github.com/soukasamadi/Rock-paper-scissors-lizard-spock.game/assets/131408125/ce5c25a0-1f80-4585-a602-7d9b3d7ec0d3)
+)<br>
+I spent time planning and thinking about the logic and flow behind the game to ensure I had a general idea of how it could be built. I created flowcharts to assist me with the logical flow throughout the application. The charts were generated using [Lucidchart](https://lucid.app/) Integration and are shown below.<br>
+
+
 ## Features
 
 ### Logo and Intro Message
@@ -126,4 +132,3 @@ between enteties message and round score.
 * [Patorjk](https://patorjk.com)
     * Patorjk (ASCII Art Generator) was used to draw the game logos
 
-    
