@@ -211,3 +211,19 @@ The [PEP8](https://peps.python.org/pep-0008/) pycodestyle was used to validate e
 6. Change the current working directory to the location that you want the cloned directory
 7. Type git clone and paste the URL copied in step 3
 8. Press Enter and the project is cloned
+
+
+## Credits
+
+### Content
+ 
+* The terminal function and template for the deployable application was provided by [Code Institute - Template](https://github.com/Code-Institute-Org/python-essentials-template)
+* The Python code for the typewriter was taken from the following repo: [PedroCristo](https://github.com/PedroCristo/portfolio_project_3/blob/main/hangman_extras.py)
+* Readme template from [PedroCristo](https://github.com/PedroCristo/portfolio_project_3/blob/main/README.md?plain=1)
+
+  
+### Information Sources / Resources
+
+* [W3Schools - Python](https://www.w3schools.com/python/)
+* [Stack Overflow](https://stackoverflow.com/)
+* [Scrimba - Pyhton](https://scrimba.com/learn/python)
