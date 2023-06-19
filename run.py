@@ -35,7 +35,7 @@ def main() -> None:
     ]
 
     print(f"{Fore.BLUE}{logo[0]}")
-    typewriter(f"""
+    typewriter(Fore.WHITE + f"""
     G O O D  L U C K ! ! 
     I  W I C H  Y O U  W I N  T H E  G A M E ! !
     P L E A S E  E N T E R  Y O U R  N A M E : \n""")
