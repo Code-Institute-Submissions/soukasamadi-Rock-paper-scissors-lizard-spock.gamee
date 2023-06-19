@@ -136,7 +136,6 @@ class Game:
     def get_user_name() -> str:
         """Get player name
         """
-        print(Fore.WHITE + "Please enter your name:\n")
         return str(input().strip())
 
     def display_game_winner(self):
