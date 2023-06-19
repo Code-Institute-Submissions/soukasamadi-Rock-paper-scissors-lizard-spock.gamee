@@ -132,3 +132,34 @@ between enteties message and round score.
 * [Patorjk](https://patorjk.com)
     * Patorjk (ASCII Art Generator) was used to draw the game logos
 
+
+## Testing
+
+### PEP 8 
+
+The [PEP8](https://peps.python.org/pep-0008/) pycodestyle was used to validate every Python file in the project to ensure there were no syntax errors in the project.
+
+* No errors or warnings were found during the testing of the code in PEP8 but in the run page I got some whitelines errors because of the ASCII Logo.
+![syntaxError](https://github.com/soukasamadi/Rock-paper-scissors-lizard-spock.game/assets/131408125/c8d040cd-8697-46fe-985f-359f1e4a644f)
+
+### Functionality 
+
+* The terminal has no issues and is working properly 
+* The typewriter starts typing at the right time and is working correctly 
+* The input for name have the right behaviour 
+* The game rules appear without any issues after the player submits their name and city
+* The option to press a key to start a game is running well
+* The game runs without any issues and as expected 
+* At the end of the game, the worksheet is updating correctly
+* The restart option works correctly
+
+
+## Bugs 
+### Whitespaces
+
+![syntaxError](https://github.com/soukasamadi/Rock-paper-scissors-lizard-spock.game/assets/131408125/c8d040cd-8697-46fe-985f-359f1e4a644f)
+
+
+### Unfixed Bug
+
+* I could not update the logo (ASCII Art Generator) to avoid these issues.
