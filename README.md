@@ -90,3 +90,40 @@ between enteties message and round score.
 ## Storage data
 
 *I have used the google sheet to save the player name, date, their score and computer score.
+
+
+## Technologies Used
+### Languages Used 
+
+* [Python](https://www.python.org)
+
+
+#### Python Packages
+
+* [Random](https://docs.python.org/3/library/random.html?highlight=random#module-random): returns a random integer to get a random word
+* [Datetime](https://pypi.org/project/DateTime/): returns the full date
+* [Gspread](https://pypi.org/project/gspread/): allows communication with Google Sheets
+* [Colorama](https://pypi.org/project/colorama/): allows terminal text to be printed in different colours / styles
+* [Time](https://pypi.org/project/time/): defined time sleep
+* [google.oauth2.service_accoun](https://google-auth.readthedocs.io/en/stable/index.html): credentials used to validate credentials and grant access to Google service accounts
+* [enum](https://docs.python.org/3/library/enum.html): create enumerations, which are a set of symbolic names (members) bound to unique, constant values.
+* [typing](https://docs.python.org/3/library/typing.html): provides runtime support for type hints.
+* [sys](https://docs.python.org/3/library/sys.html#:~:text=This%20module%20provides%20access%20to,It%20is%20always%20available.):provides access to some variables used or maintained by the interpreter and to functions that interact strongly with the interpreter.
+
+
+* [Git](https://git-scm.com/)
+    * Git was used for version control by utilizing the Gitpod terminal to commit to Git and push to GitHub
+* [GitHub](https://github.com/)
+    * GitHub is used to store the project's code after being pushed from Git
+* [Heroku](https://id.heroku.com)
+    * Heroku was used to deploy the live project
+* [VSCode](https://code.visualstudio.com/)
+    * VSCode was used to create and edit the website
+* [Lucidchart](https://lucid.app/)
+    * Lucidchart was used to create the flowchart
+* [PEP8](https://peps.python.org/pep-0008/)
+    * The PEP8 was used to validate all the Python code using pycodestyle command Line.
+* [Patorjk](https://patorjk.com)
+    * Patorjk (ASCII Art Generator) was used to draw the game logos
+
+    
