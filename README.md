@@ -32,8 +32,7 @@ In a tie, the process is repeated until a winner is found.<br>
 * The colours in the game are supplied by the Python Colorama Model.
 
 ### Flowcharts 
-![Flowcharts](![Diagramm](https://github.com/soukasamadi/Rock-paper-scissors-lizard-spock.game/assets/131408125/ce5c25a0-1f80-4585-a602-7d9b3d7ec0d3)
-)<br>
+![Flowcharts](https://github.com/soukasamadi/Rock-paper-scissors-lizard-spock.game/assets/131408125/ce5c25a0-1f80-4585-a602-7d9b3d7ec0d3)
 I spent time planning and thinking about the logic and flow behind the game to ensure I had a general idea of how it could be built. I created flowcharts to assist me with the logical flow throughout the application. The charts were generated using [Lucidchart](https://lucid.app/) Integration and are shown below.<br>
 
 
@@ -41,13 +40,12 @@ I spent time planning and thinking about the logic and flow behind the game to e
 
 ### Logo and Intro Message
 
-![Logo](![welcome game](https://github.com/soukasamadi/Rock-paper-scissors-lizard-spock.game/assets/131408125/26f12e4b-b22d-472b-8731-47e59ed92347)
-)
+![Logo][welcome game](https://github.com/soukasamadi/Rock-paper-scissors-lizard-spock.game/assets/131408125/26f12e4b-b22d-472b-8731-47e59ed92347)
 ![Intro message](https://github.com/soukasamadi/Rock-paper-scissors-lizard-spock.game/assets/131408125/1980ae25-59d4-489a-bd8c-54b496d4924a)
 
 * When the users reach the website, they will see this feature. The game logo and the intro message are displayed here.<br>
 
-### Ask Player Name and City
+### Ask Player Name
 
 ![Ask Player Name]()
 * After the player sees the intro feature, the computer will ask the user's to input their name.<br>
