@@ -146,7 +146,7 @@ The [PEP8](https://peps.python.org/pep-0008/) pycodestyle was used to validate e
 * The typewriter starts typing at the right time and is working correctly 
 * The input for name have the right behaviour 
 * The game rules appear without any issues after the player submits their name and city
-* The option to press a key to start a game is running well
+* The option to press [Enter] key to start a game is running well
 * The game runs without any issues and as expected 
 * At the end of the game, the worksheet is updating correctly
 * The restart option works correctly
