@@ -40,14 +40,15 @@ I spent time planning and thinking about the logic and flow behind the game to e
 
 ### Logo and Intro Message
 
-![Logo][welcome game](https://github.com/soukasamadi/Rock-paper-scissors-lizard-spock.game/assets/131408125/26f12e4b-b22d-472b-8731-47e59ed92347)
+![Logo](https://github.com/soukasamadi/Rock-paper-scissors-lizard-spock.game/assets/131408125/26f12e4b-b22d-472b-8731-47e59ed92347)
 ![Intro message](https://github.com/soukasamadi/Rock-paper-scissors-lizard-spock.game/assets/131408125/1980ae25-59d4-489a-bd8c-54b496d4924a)
 
 * When the users reach the website, they will see this feature. The game logo and the intro message are displayed here.<br>
 
 ### Ask Player Name
 
-![Ask Player Name]()
+![Ask Player Name](https://github.com/soukasamadi/Rock-paper-scissors-lizard-spock.game/assets/131408125/40592628-8d37-4fc0-9f42-7b0212e78f21)
+
 * After the player sees the intro feature, the computer will ask the user's to input their name.<br>
 
 ### Display Game rules
@@ -84,6 +85,7 @@ between enteties message and round score.
 ### Update worksheet
 
 ![worksheet](https://github.com/soukasamadi/Rock-paper-scissors-lizard-spock.game/assets/131408125/4d7d18df-4f44-4353-8856-43196a42c470)
+![worksheet screenshot](https://github.com/soukasamadi/Rock-paper-scissors-lizard-spock.game/assets/131408125/b95258db-7482-4747-b5a4-7aaef353e865)
 * By the end of the game, the data will be sent to the worksheet.
 
 ### Restart
@@ -138,7 +140,8 @@ between enteties message and round score.
 The [PEP8](https://peps.python.org/pep-0008/) pycodestyle was used to validate every Python file in the project to ensure there were no syntax errors in the project.
 
 * No errors or warnings were found during the testing of the code in PEP8 but in the run page I got some whitelines errors because of the ASCII Logo.
-![syntaxError](https://github.com/soukasamadi/Rock-paper-scissors-lizard-spock.game/assets/131408125/c8d040cd-8697-46fe-985f-359f1e4a644f)
+![run page white spaces](https://github.com/soukasamadi/Rock-paper-scissors-lizard-spock.game/assets/131408125/2831165f-4e50-47f2-be49-40eaa130ade3)
+
 
 ### Functionality 
 
@@ -155,7 +158,8 @@ The [PEP8](https://peps.python.org/pep-0008/) pycodestyle was used to validate e
 ## Bugs 
 ### Whitespaces
 
-![syntaxError](https://github.com/soukasamadi/Rock-paper-scissors-lizard-spock.game/assets/131408125/c8d040cd-8697-46fe-985f-359f1e4a644f)
+![run page white spaces](https://github.com/soukasamadi/Rock-paper-scissors-lizard-spock.game/assets/131408125/2831165f-4e50-47f2-be49-40eaa130ade3)
+
 
 
 ### Unfixed Bug
